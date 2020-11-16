@@ -1,0 +1,49 @@
+<form action="/restaurants" method="POST" style="margin: 10px 100px">
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="name" name="name" value="{{ restaurant.name }}">
+    </div>
+    <div class=" form-group col-md-4">
+      <label for="name_en">English name</label>
+      <input type="text" class="form-control" placeholder="name_en" name="name_en" value="{{ restaurant.name_en }}">
+    </div>
+    <div class=" form-group col-md-4">
+      <label for="category">Category</label>
+      <input type="text" class="form-control" placeholder="category" name="category" value="{{ restaurant.category }}">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="image">Image</label>
+      <input type="text" class="form-control" placeholder="https://via.placeholder.com/300.png/09f/fff" name="image"
+        value="https://via.placeholder.com/300.png/09f/fff">
+    </div>
+    <div class=" form-group col-md-6">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" placeholder="location" name="location" value="{{ restaurant.location }}">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="phone">Phone</label>
+      <input type="tel" class="form-control" placeholder="phone" name="phone" value="{{ restaurant.phone }}">
+    </div>
+    <div class=" form-group col-md-4">
+      <label for="google_map">Google map</label>
+      <input type="text" class="form-control" placeholder="https://goo.gl/maps/" name="google_map"
+        value="https://goo.gl/maps/">
+    </div>
+    <div class=" form-group col-md-4">
+      <label for="rating">Rating</label>
+      <input type="number" class="form-control" placeholder="rating" name="rating" value="{{ restaurant.rating }}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+      name="description">{{ restaurant.description }}</textarea>
+  </div>
+  <button class="btn btn-outline-secondary" type="submit">Create</button>
+  <a href="/" class="btn btn-outline-secondary">back</a>
+</form>

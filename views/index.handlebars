@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <div class="row" id="search-bar">
+    <div class="col-12">
+      <form action="/search">
+        <div class="input-group mb-3">
+          <input type="text" name="keyword" class="form-control" placeholder="Enter restaurant name to search... "
+            value="{{keyword}}" aria-label="Restaurant Name..." aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <button class="btn btn-outline-secondary" style="float: right;"><a href="./restaurants/new">Create</a></button>
+  <button class="btn btn-outline-secondary"><a href="/">back</a></button>
+  <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+      <div class="card-columns">
+        {{#each restaurants}}
+        <a href="./restaurants/{{ this._id }}" class="text-secondary">
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" style="width:290px; height: 200px;">
+            <div class="card-body p-3">
+              <h6 class="card-title mb-1">{{this.name}}</h6>
+
+              <div class="restaurant-category mb-1">
+                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+              </div>
+
+              <span class="badge badge-pill badge-secondary font-weight-normal">
+                {{this.rating}}
+                <i class="fas fa-star fa-xs"></i>
+              </span>
+
+            </div>
+            <form action="./restaurants/{{ this._id }}/delete" method="POST" style="float: right; margin: 2px;">
+              <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i></button>
+            </form>
+            <a href="./restaurants/{{ this._id }}" style="margin: 2px;" class="badge badge-info">detail</a>
+            <a href="./restaurants/{{ this._id }}/edit" class="badge badge-warning" style="margin: 2px;">edit</a>
+
+
+
+          </div>
+
+        </a>
+        {{/each}}
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
