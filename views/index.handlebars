@@ -34,7 +34,7 @@
               </span>
 
             </div>
-            <form action="./restaurants/{{ this._id }}/delete" method="POST" style="float: right; margin: 2px;">
+            <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style="float: right; margin: 2px;">
               <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i></button>
             </form>
             <a href="./restaurants/{{ this._id }}" style="margin: 2px;" class="badge badge-info">detail</a>
