@@ -5,12 +5,12 @@ const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
 // 設定新增頁面路由
-router.get('/restaurants/new', (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
 // 設定新增路由接住表單資料
-router.post('/restaurants', (req, res) => {
+router.post('/', (req, res) => {
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   return Restaurant.create({ name: name, name_en: name_en, category: category, image: image, location: location, phone: phone, google_map: google_map, rating: rating, description: description }) // 存入資料庫
     .then(() => res.redirect('/')) // 新增完成後導回首頁
@@ -18,7 +18,7 @@ router.post('/restaurants', (req, res) => {
 })
 
 // 設定特定詳情的路由
-router.get('/restaurants/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
@@ -27,7 +27,7 @@ router.get('/restaurants/:id', (req, res) => {
 })
 
 // 設定編輯頁面的路由
-router.get('/restaurants/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
@@ -36,7 +36,7 @@ router.get('/restaurants/:id/edit', (req, res) => {
 })
 
 // 設定新增路由接住修改的表單資料
-router.put('/restaurants/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   return Restaurant.findById(id)
@@ -52,12 +52,12 @@ router.put('/restaurants/:id', (req, res) => {
       restaurant.description = description
       return restaurant.save()
     })
-    .then(() => res.redirect(`/restaurants/${id}`))
+    .then(() => res.redirect(`/${id}`))
     .catch(error => console.log(error))
 })
 
 // 設定新增路由接住刪除的表單資料
-router.delete('/restaurants/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())

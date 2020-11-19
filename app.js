@@ -25,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 // 將 request 導入路由器
 app.use(routes)
+// setting static files
+app.use(express.static('public'))
 
 // 4.設定路由
 
