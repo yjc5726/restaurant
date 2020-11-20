@@ -1,19 +1,23 @@
 <div class="container mt-5">
-  <div class="row" id="search-bar">
-    <div class="col-12">
-      <form action="/search">
-        <div class="input-group mb-3">
-          <input type="text" name="keyword" class="form-control" placeholder="Enter restaurant name to search... "
-            value="{{keyword}}" aria-label="Restaurant Name..." aria-describedby="search-button">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
-          </div>
-        </div>
-      </form>
+  <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+    <button class="btn btn-outline-secondary"><a href="/">back</a></button>
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Dropdown link
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+    <div style="font-size: 20px; margin-left: 20px;">
+      <button class="btn btn-outline-secondary"><i class="fas fa-bars"></i></button>
+      <button class="btn btn-outline-secondary"><i class="fas fa-columns"></i></button>
     </div>
   </div>
-  <button class="btn btn-outline-secondary" style="float: right;"><a href="./restaurants/new">Create</a></button>
-  <button class="btn btn-outline-secondary"><a href="/">back</a></button>
   <div class="row">
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
@@ -56,5 +60,31 @@
       </div>
     </div>
   </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Rating</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each restaurants}}
+      <tr>
+        <th scope="row"><a href="./restaurants/{{ this._id }}" class="text-secondary">{{this.name}}</a><a
+            href="./restaurants/{{ this._id }}" style="margin: 2px;" class="badge badge-info">detail</a>
+          <a href="./restaurants/{{ this._id }}/edit" class="badge badge-warning" style="margin: 2px;">edit</a></th>
+        <td>{{this.category}}</td>
+        <td>{{this.rating}}</td>
+        <td>
+          <form action="./restaurants/{{ this._id }}?_method=DELETE" method="POST" style=" margin: 2px;">
+            <button class="btn btn-danger" type="submit"><i class="fas fa-times"></i></button>
+          </form>
 
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
