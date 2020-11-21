@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     .then(restaurants => res.render('index', { restaurants: restaurants })) // 將資料傳給 index 樣板
     .catch(error => console.error(error)) // 錯誤處理
 })
-//設定搜尋路由
+// 設定搜尋路由
 router.get('/search', (req, res) => {
   console.log('req.query', req.query)
   const keyword = req.query.keyword

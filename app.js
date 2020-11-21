@@ -9,11 +9,8 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 // 引用路由器
 const routes = require('./routes')
-//引用mongoose設定檔
+// 引用mongoose設定檔
 require('./config/mongoose')
-
-
-
 
 // 3.模板引擎,body-parser
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -29,9 +26,6 @@ app.use(routes)
 app.use(express.static('public'))
 
 // 4.設定路由
-
-
-
 
 // 5.設定 port 3000
 app.listen(3000, () => {

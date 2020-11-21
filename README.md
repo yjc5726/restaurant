@@ -7,6 +7,7 @@
 3. express-handlebars v5.2.0
 4. body-parser v1.19.0
 5. mongoose v5.10.14
+6. method-override v3.0.0
 
 ### 安裝與執行步驟 (installation and execution)
 

@@ -10,7 +10,7 @@ const restaurantSchema = new Schema({
 
   },
   category: {
-    type: String, // 資料型別是字串
+    type: String // 資料型別是字串
   },
   image: {
     type: String // 資料型別是字串
@@ -21,7 +21,7 @@ const restaurantSchema = new Schema({
 
   },
   phone: {
-    type: String, // 資料型別是字串
+    type: String // 資料型別是字串
   },
   google_map: {
     type: String // 資料型別是字串

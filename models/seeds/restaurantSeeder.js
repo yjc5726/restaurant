@@ -7,4 +7,4 @@ db.once('open', () => {
     Restaurant.create(restList.results[i])
   }
   console.log('done')
- })
+})
