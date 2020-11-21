@@ -3,7 +3,7 @@ const cardMode = document.querySelector('.card-mode')
 const listMode = document.querySelector('.list-mode')
 const index = document.querySelector('.index')
 
-window.addEventListener('load', function () {
+window.addEventListener('DOMContentLoaded', function () {
   if (JSON.parse(sessionStorage.getItem('display')) === 'columns') {
     cardMode.style.display = 'block'
     listMode.style.display = 'none'
